@@ -18,23 +18,22 @@ public class WebSecurityConfig {
 
     private final UserDetailsService userDetailsService;
 
-    @Bean
+    //OAUTH2 client https://www.baeldung.com/spring-security-5-oauth2-login
+    /*@Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authenticationProvider(daoAuthenticationProvider())
-                .authorizeRequests()
+        http.authorizeRequests()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .loginProcessingUrl("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .logoutUrl("/logout")
-                .permitAll()
-                .and()
-                .httpBasic();
+                .oauth2Login();
+        return http.build();
+    }*/
 
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                .anyRequest().authenticated()
+                .and()
+                .oauth2Login();
         return http.build();
     }
 
