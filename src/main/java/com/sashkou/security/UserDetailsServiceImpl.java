@@ -1,3 +1,4 @@
+/*
 package com.sashkou.security;
 
 import com.sashkou.storage.User;
@@ -22,3 +23,4 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         return UserDetailsImpl.fromUser(user);
     }
 }
+*/
